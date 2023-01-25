@@ -15,14 +15,11 @@ public class Drivers {
 
         switch (browser) {
             case CHROME:
-          //      file = new File(DRIVERPATH + "chromedriver.exe");
-              //  System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
+                file = new File(DRIVERPATH + "chromedriver.exe");
+                System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
                 driver = new ChromeDriver();
                 break;
 
-           /* case SAFARI:
-                SafariOptions options = new SafariOptions();
-                driver = new SafariDriver(options);*/
 
             case FIREFOX:
             //    file = new File(DRIVERPATH + "geckodriver.exe");

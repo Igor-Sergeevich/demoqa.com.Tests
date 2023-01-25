@@ -9,7 +9,12 @@ import org.testng.annotations.BeforeClass;
 import java.time.Duration;
 
 public abstract class BaseTest {
-    protected WebDriver driver;
+
+    private static WebDriver driver;
+
+    public static WebDriver getDriver() {
+        return driver;
+    }
 
     @BeforeClass
     public void setUp() {
