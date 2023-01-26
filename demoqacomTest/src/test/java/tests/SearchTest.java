@@ -1,6 +1,7 @@
 package tests;
 
 import Page.StartPage;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class SearchTest extends BaseTest {
@@ -16,18 +17,18 @@ public class SearchTest extends BaseTest {
         sp.checkStartPage("ToolsQA");
     }
 
-    @Test
-    public void checkSearchByBookTitleResults(){
+    @Test (dataProvider = "searchNameBookList")
+    public void checkSearchByBookTitleResults(String name){
         StartPage startPage = new StartPage();
-        startPage.sendSearchBox("Java");
-        startPage.checkListByBooksTitle("Java");
+        startPage.sendSearchBox(name);
+        startPage.checkListByBooksTitle(name);
     }
 
-    @Test
-    public void checkSearchByAuthorName(){
+    @Test (dataProvider = "searchAuthorBookList")
+    public void checkSearchByAuthorName(String name){
         StartPage startPage = new StartPage();
-        startPage.sendSearchBox("addy osmani");
-        startPage.checkListByAuthorName("Addy Osmani");
+        startPage.sendSearchBox(name);
+        startPage.checkListByAuthorName(name);
     }
 
 

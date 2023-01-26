@@ -41,4 +41,20 @@ public abstract class BaseTest {
         driver.navigate().to(url);
     }
 
+    @DataProvider (name = "searchNameBookList")
+    public Object[][] searchNameBookList(){
+        return new Object[][] {{"Java"},{"Script"}};
+    }
+
+    @DataProvider (name = "searchAuthorBookList")
+    public Object[][] searchAuthorBookList(){
+        return new Object[][] {{"Addy Osmani"},{"Eric Elliott"}};
+    }
+
+    @DataProvider (name = "authorizationPositiveList")
+    public Object[][] authorizationPositiveList(){
+        return new Object[][] {{"login", "password"},{"login1", "password1"}};
+    }
+
+
 }

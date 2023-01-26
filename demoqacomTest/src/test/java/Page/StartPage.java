@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.testng.annotations.DataProvider;
 
 import java.util.List;
 
@@ -16,6 +17,7 @@ public class StartPage extends BasePage {
     }
 
     List<WebElement> bookList;
+
     @FindBy(id = "searchBox")
     private WebElement searchBox;
 

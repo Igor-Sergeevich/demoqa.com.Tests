@@ -17,10 +17,10 @@ public class AuthorizationTest extends BaseTest {
         authorizationPage.checkAuthorizationPage();
     }
 
-    @Test
-    public void checkPositiveAuthorization() {
+    @Test(dataProvider = "authorizationPositiveList")
+    public void checkPositiveAuthorization(String login, String password) {
         AuthorizationPage authorizationPage = new AuthorizationPage();
-        authorizationPage.checkAuthorization("name", "password");
+        authorizationPage.checkAuthorization(login, password);
     }
 
 }
