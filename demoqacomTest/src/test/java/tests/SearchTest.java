@@ -5,6 +5,11 @@ import org.testng.annotations.Test;
 
 public class SearchTest extends BaseTest {
 
+
+    public SearchTest(String url) {
+        super("https://demoqa.com/books");
+    }
+
     @Test
     public void checkPage(){
         StartPage sp = new StartPage();

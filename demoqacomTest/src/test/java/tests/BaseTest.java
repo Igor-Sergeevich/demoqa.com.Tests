@@ -1,16 +1,19 @@
 package tests;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
+
+import org.testng.annotations.*;
 import utils.Browser;
 import utils.Drivers;
 
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
 
 import java.time.Duration;
 
 public abstract class BaseTest {
+    String url;
+
+    public BaseTest(String url) {
+        this.url = url;
+    }
 
     private static WebDriver driver;
 
@@ -24,7 +27,7 @@ public abstract class BaseTest {
         driver = Drivers.getDriver(Browser.CHROME);
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
-        driver.navigate().to("https://demoqa.com/books");
+        driver.navigate().to(url);
 
     }
 
@@ -34,9 +37,8 @@ public abstract class BaseTest {
     }
 
     @AfterMethod
-    public void goBegin(){
-        driver.navigate().to("https://demoqa.com/books");
+    public void goToBegin() {
+        driver.navigate().to(url);
     }
-
 
 }
