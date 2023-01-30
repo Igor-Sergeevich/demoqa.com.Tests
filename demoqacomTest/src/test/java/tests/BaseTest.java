@@ -5,11 +5,14 @@ import utils.Browser;
 import utils.Drivers;
 
 import org.openqa.selenium.WebDriver;
+import utils.ExcelReader;
 
+import java.io.IOException;
 import java.time.Duration;
 
 public abstract class BaseTest {
     String url;
+    String pathParameters = "src/test/resources/testParametrs.xlsx";
 
     public BaseTest(String url) {
         this.url = url;
@@ -42,19 +45,20 @@ public abstract class BaseTest {
     }
 
     @DataProvider (name = "searchNameBookList")
-    public Object[][] searchNameBookList(){
-        return new Object[][] {{"Java"},{"Script"}};
+    public Object[][] searchNameBookList() throws Exception {
+        ExcelReader excelReader = new ExcelReader(pathParameters, "SearchBookPositive");
+        return excelReader.getParametersFromExel();
     }
 
     @DataProvider (name = "searchAuthorBookList")
-    public Object[][] searchAuthorBookList(){
-        return new Object[][] {{"Addy Osmani"},{"Eric Elliott"}};
+    public Object[][] searchAuthorBookList() throws Exception {
+        ExcelReader excelReader = new ExcelReader(pathParameters, "SearchAuthorNegative");
+        return excelReader.getParametersFromExel();
     }
 
     @DataProvider (name = "authorizationPositiveList")
-    public Object[][] authorizationPositiveList(){
-        return new Object[][] {{"login", "password"},{"login1", "password1"}};
+    public Object[][] authorizationPositiveList() throws Exception {
+        ExcelReader excelReader = new ExcelReader(pathParameters, "userPositive");
+        return excelReader.getParametersFromExel();
     }
-
-
 }
