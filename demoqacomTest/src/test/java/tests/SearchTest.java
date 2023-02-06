@@ -1,6 +1,7 @@
 package tests;
 
 import Page.StartPage;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -9,6 +10,11 @@ public class SearchTest extends BaseTest {
 
     public SearchTest(String url) {
         super("https://demoqa.com/books");
+    }
+
+    @AfterMethod
+    public void refreshThePage(){
+        goToBegin();
     }
 
     @Test

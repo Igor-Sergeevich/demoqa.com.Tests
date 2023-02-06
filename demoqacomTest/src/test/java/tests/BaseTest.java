@@ -39,7 +39,7 @@ public abstract class BaseTest {
         driver.quit();
     }
 
-    @AfterMethod
+   // @AfterMethod
     public void goToBegin() {
         driver.navigate().to(url);
     }
