@@ -36,7 +36,7 @@ public class CheckBoxPage extends BasePage {
     @FindBy(css = "label[for=\"tree-node-documents\"] span.rct-checkbox svg")
     WebElement documentsBox;
 
-    @FindBy(css = "label[for=\"ttree-node-workspace\"] span.rct-checkbox svg")
+    @FindBy(css = "label[for=\"tree-node-workspace\"] span.rct-checkbox svg")
     WebElement workspaceBox;
 
     @FindBy(css = "label[for=\"tree-node-react\"] span.rct-checkbox svg")
@@ -79,9 +79,10 @@ public class CheckBoxPage extends BasePage {
         assertThat(textResult.get(0).getText().equals(text));
     }
 
-    public void checkTextResultList(String[] text) {
-        for (int i = 0; i < text.length - 1; i++) {
-            assertThat(textResult.get(i).getText().equals(text[i]));
+    public void checkTextResultList(String text) {
+        String[] result = text.split(" ");
+        for (int i = 0; i < result.length; i++) {
+            assertThat(textResult.get(i).getText().equals(result[i]));
 
         }
     }
@@ -102,6 +103,81 @@ public class CheckBoxPage extends BasePage {
 
     public void checkCommands() {
         commandsBox.click();
+    }
+
+    public void selectBox(String box) {
+        String[] boxes = box.split(" ");
+        for (int i = 0; i < boxes.length; i++) {
+            switch (boxes[i]) {
+                case ("Home"):
+                    homeBox.click();
+                    break;
+
+                case ("Desktop"):
+                    desktopBox.click();
+                    break;
+
+                case ("Notes"):
+                    notesBox.click();
+                    break;
+
+                case ("Commands"):
+                    commandsBox.click();
+                    break;
+
+                case ("Documents"):
+                    desktopBox.click();
+                    break;
+
+                case ("WorkSpace"):
+                    workspaceBox.click();
+                    break;
+
+                case ("React"):
+                    reactBox.click();
+                    break;
+
+                case ("Angular"):
+                    angularBox.click();
+                    break;
+
+                case ("Veu"):
+                    veuBox.click();
+                    break;
+
+                case ("Office"):
+                    officeBox.click();
+                    break;
+
+                case ("Public"):
+                    publicBox.click();
+                    break;
+
+                case ("Private"):
+                    publicBox.click();
+                    break;
+
+                case ("Classified"):
+                    classifiedBox.click();
+                    break;
+
+                case ("General"):
+                    generalBox.click();
+                    break;
+
+                case ("Downloads"):
+                    downloadsBox.click();
+                    break;
+
+                case ("Word"):
+                    wordFileBox.click();
+                    break;
+
+                case ("Excel"):
+                    excelFileBox.click();
+                    break;
+            }
+        }
     }
 
 }

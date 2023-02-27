@@ -39,7 +39,7 @@ public abstract class BaseTest {
         driver.quit();
     }
 
-   // @AfterMethod
+    @AfterMethod
     public void goToBegin() {
         driver.navigate().to(url);
     }
@@ -61,4 +61,11 @@ public abstract class BaseTest {
         ExcelReader excelReader = new ExcelReader(pathParameters, "userPositive");
         return excelReader.getParametersFromExel();
     }
+
+    @DataProvider (name = "checkBoxList")
+    public Object[][] checkBoxList() throws Exception {
+        ExcelReader excelReader = new ExcelReader(pathParameters, "CheckBox");
+        return excelReader.getParametersFromExel();
+    }
+
 }
